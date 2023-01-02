@@ -3,9 +3,11 @@
 Pascal Triangle exercise file
 """
 
+
 def fact(n):
     """
-    A function to recursively perform the factorial operation on a number
+    A function to recursively perform the factorial
+    operation on a number
     :param n:
     :return: The factorial, denoted by n! mathematically
     """
@@ -13,9 +15,11 @@ def fact(n):
         return 1
     return n * fact(n-1)
 
+
 def pascal_triangle(n):
     """
-    Using the fact function above, we compute a combination using the given parameter n
+    Using the fact function above, we compute
+    a combination using the given parameter n
     to produce the famous pascals triangle
     """
     result = []
