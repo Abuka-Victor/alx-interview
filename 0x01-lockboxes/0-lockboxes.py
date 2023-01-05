@@ -10,15 +10,16 @@ def canUnlockAll(boxes):
     :param boxes:
     :return: True if box can be opened and false if not
     """
-    all_keys = []
-    for i in boxes:
-        for j in i:
-            if j:
-                all_keys.append(j)
-        print(all_keys)
-        next_index = boxes.index(i) + 1
-        print(f"The next index is: {next_index}")
-        if next_index != 0 and next_index not in all_keys and next_index < len(boxes):
-            return False
-        print("end")
-    return True
+    position = 0
+    unlocked = {}
+
+    for box in boxes:
+        if len(box) == 0 or position == 0:
+            unlocked[position] = "always_unlocked"
+        for key in box:
+            if key < len(boxes) and key != position:
+                unlocked[key] = key
+        if len(unlocked) == len(boxes):
+            return True
+        position += 1
+    return False
